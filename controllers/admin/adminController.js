@@ -13,7 +13,7 @@ const addBatch = async (req, res) => {
         // find the existing batch
         const findBatch = await BatchModel.findOne({ batchCode: req.body.batchCode })
         if (findBatch) {
-            return res.status(400).json({ messgae: "BatchCode already registered" })
+            return res.status(400).json({ message: "BatchCode already registered" })
         }
 
         // creation of new batch

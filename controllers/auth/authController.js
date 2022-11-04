@@ -3,11 +3,13 @@ const { JWT_SECRET, JWT_EXPIRE } = require('../../config')
 const jwt = require('jsonwebtoken')
 const { validationResult } = require('express-validator')
 const { unHashingPassword } = require('../../helpers/Password')
+const { removeListener } = require('../../Models/Auth/AuthModel')
 
 // REGISTER REQUEST
 // URL /api/auth/register
 const authRegister = async (req, res) => {
     try {
+        console.log(req.body)
         const newAuth = await AuthModel.create(req.body)
         res.status(201).json(newAuth)
     } catch (err) {
@@ -41,5 +43,21 @@ const authLogin = async (req, res) => {
     }
 }
 
-module.exports = { authRegister, authLogin }
+//LOGOUT REQUEST
+
+const authLogout =  async (req, res) => {
+    try{
+       
+            res.status(200). json({ message:  "Logged out Successfully" });
+    }
+     catch(err) {
+        res.json({ 'success': data.success, 'message': data.message });
+      }
+};
+    
+
+
+
+
+module.exports = { authRegister, authLogin, authLogout }
 

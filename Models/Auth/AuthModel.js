@@ -6,10 +6,10 @@ const { hashingPassword } = require('../../helpers/Password')
 const AuthSchema = new Schema({
     username: { type: String, required: true, },
     email: { type: String, required: true, unique: true },
-    number: { type: String, required: true, unique: true },
+    number: { type: Number, required: true, unique: true },
     password: { type: String },
     batchCode: { type: Array },
-    role: { type: String, enum: ['trainer', 'admin', 'hr', 'councellor', 'feetracker'], default: 'trainer' },
+    role: { type: String, enum: ['trainer', 'admin', 'hr', 'counselor', 'feetracker'], default: 'trainer' },
     idNum: { type: String, unique: true }
 })
 

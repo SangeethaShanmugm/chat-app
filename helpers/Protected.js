@@ -10,7 +10,7 @@ const verifyToken = (req, res, next) => {
             next()
         })
     } else {
-        return res.status(401).json({ message: "you are not authenticated1" })
+        return res.status(401).json({ message: "You are not authorized" })
     }
 }
 
@@ -19,7 +19,7 @@ const verifyTokenAndAdmin = (req, res, next) => {
         if (req.user.role === 'admin') {
             next();
         } else {
-            res.status(403).json("You are not alowed to do that!");
+            res.status(403).json("You are not allowed to do that!");
         }
     });
 };
