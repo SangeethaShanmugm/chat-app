@@ -42,6 +42,15 @@ const addBatch = async (req, res) => {
     }
 }
 
+//Get batch request 
+
+const getBatch = async (req, res) => {  
+  const data = await BatchModel.find({})
+    res.status(200).json(data)
+
+}
+
+
 // PUT Request
 const updateAuth = async (req, res) => {
     try {
@@ -65,4 +74,4 @@ const deleteAuth = async (req, res) => {
     }
 }
 
-module.exports = { updateAuth, deleteAuth, addBatch }
+module.exports = { updateAuth, deleteAuth, addBatch, getBatch }
